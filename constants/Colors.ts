@@ -1,26 +1,30 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+    light : {
+        lightGreen: "#30F6B7",
+        Green: "#3CC3AA",
+        White: "#FFFFFF",
+        Background: "#F5F6FA",
+        Purple: "#6B31F5",
+        Orange: "#F55931",
+        Yellow: "#F5E731",
+    },
+
+    dark : {
+        lightGreen: "#30F6B7",
+        Green: "#3CC3AA",
+        White: "#FFFFFF",
+        Background: "#F5F6FA",
+        Purple: "#6B31F5",
+        Orange: "#F55931",
+        Yellow: "#F5E731"
+    },
+
+    gradient : {
+        greenGradient: {color1:"#30F6B7", color2:"#3CC3AA"},
+        scoreGradient20: {color1:"#30F6B7", color2:"#96F630"},
+        scoreGradient40: {color1:"#96F630", color2:"#F6E930"},
+        scoreGradient60: {color1:"#F6E930", color2:"#F69030"},
+        scoreGradient80: {color1:"#F69030", color2:"#F63030"},
+        scoreGradient100: {color1:"#F63030", color2:"#F63079"}
+    }
+}
