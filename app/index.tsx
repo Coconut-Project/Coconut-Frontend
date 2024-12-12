@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   return (
@@ -9,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Welcome to Coconut.</Text>
+      <ThemedText>Welcome to Coconut !</ThemedText>
     </View>
   );
 }
