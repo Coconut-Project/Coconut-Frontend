@@ -16,7 +16,7 @@ export default function Index() {
     >
       <CustomCheckbox/>
       <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
-      <Steps/>
+      <Steps currentStep={1} totalSteps={3}/>
       <ClassicButton label="C'est parti !" />
       <ClassicButton variant label="Reprendre la photo" />
     </View>
