@@ -1,9 +1,6 @@
 import { CustomCheckbox } from "@/components/CustomCheckbox";
 import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ClassicButton } from "@/components/ClassicButton";
-import { Steps } from "@/components/Steps";
 
 export default function Index() {
   return (
