@@ -1,5 +1,6 @@
 export const Colors = {
     light : {
+        Black: "#232A36",
         lightGreen: "#30F6B7",
         Green: "#3CC3AA",
         White: "#FFFFFF",
@@ -10,6 +11,7 @@ export const Colors = {
     },
 
     dark : {
+        Black: "#232A36",
         lightGreen: "#30F6B7",
         Green: "#3CC3AA",
         White: "#FFFFFF",
