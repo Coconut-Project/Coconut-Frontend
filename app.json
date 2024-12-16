@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.coconutfrontend"
     },
     "web": {
       "bundler": "metro",
