@@ -10,7 +10,7 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-      }}
+     }}
     >
       <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
       <Steps currentStep={1} totalSteps={3}/>
