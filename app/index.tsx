@@ -1,3 +1,4 @@
+import { InputField } from "@/components/InputField";
 import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 
@@ -11,6 +12,7 @@ export default function Index() {
       }}
     >
       <ProductScore score="low" product="tShirt" />
+      <InputField title={"Nom"} textExample={"De Santis"}/>
     </View>
   );
 }
