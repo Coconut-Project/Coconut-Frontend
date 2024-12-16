@@ -2,6 +2,7 @@ import { InputField } from "@/components/InputField";
 import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 import Register from "./Register";
+import Login from "./Login";
 
 export default function Index() {
   return (
@@ -12,7 +13,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Register/>
+      <Login/>
     </View>
   );
 }
