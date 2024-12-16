@@ -1,6 +1,7 @@
 import { InputField } from "@/components/InputField";
 import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
+import Register from "./Register";
 
 export default function Index() {
   return (
@@ -11,8 +12,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <ProductScore score="low" product="tShirt" />
-      <InputField title={"Nom"} textExample={"De Santis"}/>
+      <Register/>
     </View>
   );
 }
