@@ -62,19 +62,25 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
           <TouchableOpacity
             key={route.name}
             onPress={() => navigation.navigate(route.name)}
-            style={styles.tabButton}
-          >
+            style={[styles.tabButton, 
+              isMiddle ? styles.middleTab : null
+            ]}>
+            {isMiddle && <View style={styles.beforeMiddle}></View>}
+            {isMiddle && <View style={styles.afterMiddle}></View>}
             <View style={[
                 styles.iconContainer,
-                isMiddle ? styles.middleIcon : null, // Add special style for middle icon
                 isFocused && styles.focusedIcon,
+                isMiddle && styles.iconScan,
+                isMiddle && isFocused && styles.focusedScan
               ]}>
               {/* <Ionicons name={iconName} size={28} color={isFocused ? '#00FFCC' : '#CCC'} /> */}
-              <Text style={[styles.iconText, isFocused && styles.focusedText]} >{route.name}</Text>
+              <Text style={[styles.iconText, 
+                !isMiddle && isFocused && styles.focusedText]} >{route.name}</Text>
             </View>
           </TouchableOpacity>
         );
       })}
+      {/* <View style={styles.backgroundBottom}></View> */}
     </View>
   );
 }
@@ -102,22 +108,63 @@ const styles = StyleSheet.create({
   },
   tabBarContainer: {
     flexDirection: 'row',
-    // backgroundColor: '#121826',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    height: 70,
+    backgroundColor: '#121826',
+    borderRadius: 50,
+    height: 75,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     position: 'absolute',
     bottom: 20,
-    left: 20,
-    right: 20,
+    left: 75,
+    right: 75,
     elevation: 5,
+  },
+  backgroundBottom: {
+    backgroundColor: '#121826',
   },
   tabButton: {
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#121826',
+    height: 75,
+    width: 75,
+    borderRadius: 50,
+    // elevation: 5,
   },
+  middleTab: {
+    position: 'absolute',
+    bottom: 30,
+    right:95,
+    left:95,
+    color: 'white',
+  },
+  iconScan: {
+    backgroundColor: '#00FFCC',
+    width: 85,
+    height: 85,
+  },
+  focusedScan: {
+    borderWidth: 10,
+    borderColor: 'white',
+    width: 90,
+    height: 90,
+  },
+  beforeMiddle: {
+    position: 'absolute',
+    backgroundColor: '#F5F6FA',
+    width: 85,
+    height: 85,
+    borderRadius: 50,
+    right:10,
+  },
+  afterMiddle: {
+    position: 'absolute',
+    backgroundColor: '#F5F6FA',
+    width: 85,
+    height: 85,
+    borderRadius: 50,
+    left:10,
+    },
   iconContainer: {
     width: 50,
     height: 50,
@@ -125,14 +172,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-    middleIcon: {
-      // position: 'absolute',
-      // bottom: 50,
-      backgroundColor: '#00FFCC',
-      color: 'white',
-      width: 75,
-      height: 75,
-    },
   focusedIcon: {
     // backgroundColor: '#00FFCC',
   },
