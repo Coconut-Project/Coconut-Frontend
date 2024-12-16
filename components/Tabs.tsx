@@ -1,83 +1,76 @@
-import * as React from 'react';
-import { View, useWindowDimensions, StyleSheet} from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
-import {useThemeColors} from "@/hooks/useThemeColors";
-import { Shadows } from '@/constants/Shadows';
-import { ThemedText } from './ThemedText';
+// import * as React from 'react';
+// import { View, Text, StyleSheet} from 'react-native';
+// import { Colors } from '@/constants/Colors';
+// import { Shadows } from '@/constants/Shadows';
+// import { ThemedText } from './ThemedText';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-const colors = useThemeColors();
+// const styles = StyleSheet.create({
 
-const styles = StyleSheet.create({
+//     tabsContainer:{
+//         flex: 1,
+//         flexDirection: 'row',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         borderRadius: 100,
+//         ...Shadows.baseShadow
+//     },
 
-    tabsContainer:{
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 100,
-        ...Shadows.baseShadow
-    },
+//     tabs:{
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         borderRadius: 100,
+//         width:'auto',
+//         height: 'auto',
+//         paddingHorizontal: 25,
+//         paddingVertical: 5
+//     },
 
-    tabs:{
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 100,
-        width:'auto',
-        height: 'auto',
-        paddingHorizontal: 25,
-        paddingVertical: 5
-    },
+//     defaultBackground:{
+//         backgroundColor: Colors.light.White,
+//     },
 
-    defaultBackground:{
-        backgroundColor: colors.Background,
-    },
+//     variantBackground:{
+//         backgroundColor: Colors.light.Black
+//     }
+// });
 
-    variantBackground:{
-        backgroundColor: colors.Black
-    }
-});
+// const Tab = createMaterialTopTabNavigator();
 
-const EcoScoreRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Eco</ThemedText>
-    </View>
-)
+// const EcoScoreScreen = () => (
+//     <View style={styles.tabs}>
+//         <ThemedText variant="body">Eco-Score</ThemedText>
+//     </View>
+// )
 
-const AnalyseRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Analyse</ThemedText>
-    </View>
-)
+// const AnalyseScreen = () => (
+//     <View style={styles.tabs}>
+//         <ThemedText variant="body">Eco-Score</ThemedText>
+//     </View>
+// )
 
-const GraphiqueRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Graphique</ThemedText>
-    </View>
-)
+// const GraphiqueScreen = () => (
+//     <View style={styles.tabs}>
+//         <ThemedText variant="body">Eco-Score</ThemedText>
+//     </View>
+// )
 
-export default function ProductTab() {
+// export const ProductTab = () => {
 
-    const layout = useWindowDimensions();
-
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'ecoscore', title: 'Eco-Score' },
-        { key: 'analyse', title: 'Analyse' },
-        { key: 'graphique', title: 'Graphique' },
-    ]);
-
-    const renderScene = SceneMap({
-        ecoscore: EcoScoreRoute,
-        analyse: AnalyseRoute,
-        graphique: GraphiqueRoute,
-    });
-
-    return (
-        <TabView
-        navigationState={{ index, routes }}
-        renderScene={renderScene}
-        onIndexChange={setIndex}
-        initialLayout={{ width: layout.width }}
-        />
-    );
-}
+//     return(
+//             <Tab.Navigator
+//             screenOptions={{
+//                 tabBarActiveTintColor: '#232A36',
+//                 tabBarInactiveTintColor: '#FFFFFF',
+//                 tabBarStyle: styles.tabsContainer,
+//                 tabBarIndicatorStyle: styles.tabs,
+//                 tabBarLabelStyle: {fontSize: 12}
+//             }}>
+//                 <Tab.Screen name = "Eco-Score" component ={EcoScoreScreen} />
+//                 <Tab.Screen name = "Analyse" component ={AnalyseScreen} />
+//                 <Tab.Screen name = "Graphique" component ={GraphiqueScreen} />
+//             </Tab.Navigator>
+        
+//     );
+// }
