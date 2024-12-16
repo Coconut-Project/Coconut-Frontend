@@ -1,9 +1,12 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ClassicButton } from "@/components/ClassicButton";
+import { Navbar } from "@/components/Navbar";
 
-export default function Index() {
+
+export default function App() {
   return (
+    
     <View
       style={{
         flex: 1,
@@ -16,4 +19,4 @@ export default function Index() {
       <ClassicButton variant label="Reprendre la photo" />
     </View>
   );
-}
+};
