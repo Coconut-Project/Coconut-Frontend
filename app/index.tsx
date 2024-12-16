@@ -13,6 +13,7 @@ export default function Index() {
     >
       <ProductScore score="low" product="tShirt" />
       <InputField title={"Nom"} textExample={"De Santis"}/>
+      <InputField title={"Prénom"} textExample={"Léo"} variant= {true}/>
     </View>
   );
 }
