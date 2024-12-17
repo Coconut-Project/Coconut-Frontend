@@ -1,3 +1,4 @@
+import { CustomCheckbox } from "@/components/CustomCheckbox";
 import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 
@@ -10,7 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <ProductScore score="low" product="tShirt" />
+      <CustomCheckbox/>
     </View>
   );
 }
