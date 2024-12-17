@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import NavbarBg from "../assets/images/navbar_background.svg";
 
 type RootStackParamList = {
   Scan: { username: string }; // Requires a username parameter
@@ -42,9 +43,24 @@ function ProfileScreen(_: ProfileScreenProps) {
   );
 }
 
+function ShapeSVG () {
+  return (
+    <View style={{
+      position: "absolute",
+      width: "100%",
+      height: "32%",
+      bottom: 0,
+      zIndex: -1, 
+}}>
+      <NavbarBg width={50} height={50} />
+    </View>
+  );
+};
+
 function CustomTabBar({ state, descriptors, navigation }: any) {
   return (
-    <View style={styles.tabBarContainer}>
+    <View style={styles.navbarContainer}>
+      <ShapeSVG />
       {/* Loop through each tab */}
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
@@ -59,28 +75,33 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
         const isMiddle = index === 1;
 
         return (
-          <TouchableOpacity
-            key={route.name}
-            onPress={() => navigation.navigate(route.name)}
-            style={[styles.tabButton, 
-              isMiddle ? styles.middleTab : null
-            ]}>
-            {isMiddle && <View style={styles.beforeMiddle}></View>}
-            {isMiddle && <View style={styles.afterMiddle}></View>}
-            <View style={[
-                styles.iconContainer,
-                isFocused && styles.focusedIcon,
-                isMiddle && styles.iconScan,
-                isMiddle && isFocused && styles.focusedScan
+          <View style={[styles.navbarSection,
+            isMiddle ? styles.middleSection : null,
+            index == 0 ? styles.leftSection : null,
+            index == 2 ? styles.rightSection : null,
+          ]}>
+            {/* {isMiddle && <View style={styles.beforeMiddle}></View>}
+            {isMiddle && <View style={styles.afterMiddle}></View>} */}
+            <TouchableOpacity
+              key={route.name}
+              onPress={() => navigation.navigate(route.name)}
+              style={[styles.navButton, 
+                isMiddle ? styles.middleButton : null,
+                isMiddle && isFocused && styles.focusedMiddleButton
               ]}>
-              {/* <Ionicons name={iconName} size={28} color={isFocused ? '#00FFCC' : '#CCC'} /> */}
-              <Text style={[styles.iconText, 
-                !isMiddle && isFocused && styles.focusedText]} >{route.name}</Text>
-            </View>
-          </TouchableOpacity>
+              <View style={[
+                  styles.icon,
+                  isFocused && styles.focusedIcon,
+                  isMiddle && styles.iconScan,
+                ]}>
+                {/* <Ionicons name={iconName} size={28} color={isFocused ? '#00FFCC' : '#CCC'} /> */}
+                <Text style={[styles.iconText, 
+                  !isMiddle && isFocused && styles.focusedText]} >{route.name}</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         );
       })}
-      {/* <View style={styles.backgroundBottom}></View> */}
     </View>
   );
 }
@@ -101,104 +122,101 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  tabBarContainer: {
+  // screen: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
+  navbarContainer: {
     flexDirection: 'row',
-    backgroundColor: '#121826',
-    borderRadius: 50,
-    height: 75,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     position: 'absolute',
     bottom: 20,
-    left: 75,
-    right: 75,
-    elevation: 5,
-  },
-  backgroundBottom: {
-    backgroundColor: '#121826',
-  },
-  tabButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#121826',
-    height: 75,
-    width: 75,
-    borderRadius: 50,
+    left: 25,
+    right: 25,
+    // height: 75,
+    flex: 1,
     // elevation: 5,
   },
-  middleTab: {
-    position: 'absolute',
-    bottom: 30,
-    right:95,
-    left:95,
-    color: 'white',
-  },
-  iconScan: {
-    backgroundColor: '#00FFCC',
-    width: 85,
-    height: 85,
-  },
-  focusedScan: {
-    borderWidth: 10,
-    borderColor: 'white',
-    width: 90,
-    height: 90,
-  },
-  beforeMiddle: {
-    position: 'absolute',
-    backgroundColor: '#F5F6FA',
-    width: 85,
-    height: 85,
-    borderRadius: 50,
-    right:10,
-  },
-  afterMiddle: {
-    position: 'absolute',
-    backgroundColor: '#F5F6FA',
-    width: 85,
-    height: 85,
-    borderRadius: 50,
-    left:10,
+    navbarSection: {
+      backgroundColor: 'red',
+      width: 80,
+      height: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-  iconContainer: {
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  focusedIcon: {
-    // backgroundColor: '#00FFCC',
-  },
-  iconText: {
-    color: 'white',
-  },
-  focusedText: {
-    color: '#00FFCC',
-  },
+    leftSection: {
+      borderTopRightRadius:30,
+      borderTopLeftRadius: 50,
+      borderBottomLeftRadius: 50,
+    },
+    middleSection: {
+      backgroundColor: '#121826',
+      width: 95,
+    },
+    rightSection: {
+      borderTopLeftRadius:30,
+      borderTopRightRadius: 50,
+      borderBottomRightRadius: 50,
+    },
+      navButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#121826',
+        borderRadius: '50%',
+        height: 75,
+        width: 75,
+        // elevation: 5,
+      },
+      middleButton: {
+        position: 'absolute',
+        backgroundColor: '#00FFCC',
+        bottom: 30,
+        flex:1,
+        color: 'white',
+        height: 85,
+        width: 85,
+        borderWidth: 10,
+        // borderColor: '#F5F6FA', // background-white
+        borderColor: 'rgba(245, 246, 250, 0.0)'
+      },
+      focusedMiddleButton: {
+        height: 115,
+        width: 115,
+        borderColor: 'white',
+        bottom: 15,
+      },
+      beforeMiddle: {
+        position: 'absolute',
+        backgroundColor: '#F5F6FA',
+        width: 95,
+        height: 50,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+        bottom:27,left:-3.5,
+      },
+      afterMiddle: {
+        position: 'absolute',
+        backgroundColor: '#F5F6FA',
+        width: 95,  
+        height: 50,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+        bottom:27,right:-3.5,
+      },
+        icon: {
+        },
+        focusedIcon: {
+        },
+        iconScan: {
+        },
+        focusedScan: {
+        },
+        iconText: {
+          color: 'white',
+        },
+        focusedText: {
+          color: '#00FFCC',
+        },
 });
-
-// function RootStack() {
-//   return (
-//     <View style={{ flex: 1}}>
-//       <Stack.Navigator>
-//             <Stack.Screen name="History" component={HistoryScreen} />
-//             <Stack.Screen name="Scan" component={ScanScreen} />
-//             <Stack.Screen name="Profile" component={ProfileScreen} />
-//       </Stack.Navigator>
-//     </View>
-//   );
-// }
-
-// export default function App() {
-//   return (
-//     // <NavigationContainer>
-//       <RootStack />
-//     // </NavigationContainer>
-//   );
-// }
