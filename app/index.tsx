@@ -12,11 +12,11 @@ export default function App() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        gap: 20,
+        marginTop: 20,
       }}
     >
       <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
-      <ClassicButton label="C'est parti !" />
-      <ClassicButton variant label="Reprendre la photo" />
     </View>
   );
 };
