@@ -1,5 +1,3 @@
-import { InputField } from "@/components/InputField";
-import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 import Register from "./Register";
 import Terms from "./Terms";
