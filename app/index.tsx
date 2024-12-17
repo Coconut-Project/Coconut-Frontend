@@ -1,4 +1,3 @@
-import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 
