@@ -34,10 +34,10 @@ export default function Terms(){
                 </ThemedText>
                 <ThemedText variant='body' color='Black'>
                 Les présentes conditions définissent les modalités d’utilisation 
-                de l’application Coconut et des services proposés, notamment :
-                    - La création d’un compte utilisateur ;
-                    - Le scan des étiquettes de vêtements pour évaluer leur éco-score ;
-                    - La visualisation des scores écologiques par thématiques ;
+                de l’application Coconut et des services proposés, notamment :{'\n'}
+                    - La création d’un compte utilisateur ;{'\n'}
+                    - Le scan des étiquettes de vêtements pour évaluer leur éco-score ;{'\n'}
+                    - La visualisation des scores écologiques par thématiques ;{'\n'}
                     - L’accès à l’historique et au score moyen des vêtements scannés.
                 </ThemedText>
             </View>
@@ -70,9 +70,9 @@ export default function Terms(){
                     2.3 Restrictions
                     </ThemedText>
                     <ThemedText variant='body' color='Black'>
-                    Vous vous engagez à ne pas :
-                        - Utiliser l'application à des fins illégales ou non conformes à ces CGU ;
-                        - Modifier ou tenter d’accéder aux systèmes ou bases de données de Coconut ;
+                    Vous vous engagez à ne pas :{'\n'}
+                        - Utiliser l'application à des fins illégales ou non conformes à ces CGU ;{'\n'}
+                        - Modifier ou tenter d’accéder aux systèmes ou bases de données de Coconut ;{'\n'}
                         - Partager des contenus offensants ou inappropriés lors de l’utilisation de fonctionnalités sociales (si présentes).
                     </ThemedText>
                 </View>
@@ -86,8 +86,8 @@ export default function Terms(){
                     3.1 Collecte de données
                     </ThemedText>
                     <ThemedText variant='body' color='Black'>
-                    En utilisant Coconut, certaines données personnelles seront collectées, notamment :
-                        - Vos informations de compte (nom, adresse e-mail, etc.) ;
+                    En utilisant Coconut, certaines données personnelles seront collectées, notamment :{'\n'}
+                        - Vos informations de compte (nom, adresse e-mail, etc.) ;{'\n'}
                         - Les données des vêtements scannés et votre historique d’utilisation.
                     </ThemedText>
                 </View>
@@ -96,8 +96,8 @@ export default function Terms(){
                     3.2 Utilisation des données
                     </ThemedText>
                     <ThemedText variant='body' color='Black'>
-                    Vos données sont utilisées pour :
-                        - Fournir et améliorer les services de Coconut ;
+                    Vos données sont utilisées pour :{'\n'}
+                        - Fournir et améliorer les services de Coconut ;{'\n'}
                         - Générer votre éco-score et vos statistiques personnelles ;
                     </ThemedText>
                 </View>
@@ -163,7 +163,7 @@ export default function Terms(){
                 <ThemedText variant='body' color='Black'>
                 Coconut et son contenu (textes, logos, graphiques, algorithmes, etc.) sont 
                 protégés par les lois relatives à la propriété intellectuelle. Toute reproduction, 
-                modification ou utilisation non autorisée est strictement interdite.Coconut et 
+                modification ou utilisation non autorisée est strictement interdite. Coconut et 
                 son contenu (textes, logos, graphiques, algorithmes, etc.) sont protégés par les 
                 lois relatives à la propriété intellectuelle. Toute reproduction, modification ou 
                 utilisation non autorisée est strictement interdite.
@@ -204,7 +204,7 @@ export default function Terms(){
                 9. Contact
                 </ThemedText>
                 <ThemedText variant='body' color='Black'>
-                Pour toute question ou demande relative à ces CGU, veuillez nous contacter à :
+                Pour toute question ou demande relative à ces CGU, veuillez nous contacter à :{'\n'}
                 E-mail : leo.desantispro@gmail.com
                 </ThemedText>
             </View>
