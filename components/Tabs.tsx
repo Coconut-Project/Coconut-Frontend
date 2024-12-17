@@ -1,83 +1,92 @@
-import * as React from 'react';
-import { View, useWindowDimensions, StyleSheet} from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
-import {useThemeColors} from "@/hooks/useThemeColors";
-import { Shadows } from '@/constants/Shadows';
-import { ThemedText } from './ThemedText';
+import { ThemedText } from "./ThemedText";
+import React, { useState } from "react";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { Colors } from "@/constants/Colors";
+import { Shadows } from "@/constants/Shadows";
 
-const colors = useThemeColors();
+// Sous-composants
+const EcoScore = () => (
+  <View style={styles.content}>
+    <ThemedText>Hello Éco-Score</ThemedText>
+  </View>
+);
+
+const Analyse = () => (
+  <View style={styles.content}>
+    <ThemedText>Hello Analyse</ThemedText>
+  </View>
+);
+
+const Repartition = () => (
+  <View style={styles.content}>
+    <ThemedText>Hello Répartition</ThemedText>
+  </View>
+);
+
+const contents = [
+  { label: "Eco-Score", component: <EcoScore /> },
+  { label: "Analyse", component: <Analyse /> },
+  { label: "Répartition", component: <Repartition /> },
+];
+
+export const Tabs = () => {
+  const COLORS = Colors.light;
+  const [activeTab, setActiveTab] = useState("Eco-Score");
+
+  const renderContent = () => {
+    const content = contents.find((content) => activeTab === content.label);
+    return content ? content.component : null;
+  };
+
+  return (
+    <View style={styles.container}>
+      <View
+        style={[
+          styles.tabsContainer,
+          { backgroundColor: COLORS.White },
+          Shadows.baseShadow,
+        ]}
+      >
+        {contents.map((content) => (
+          <TouchableOpacity
+            key={content.label}
+            style={[
+              styles.tabButton,
+              activeTab === content.label && { backgroundColor: COLORS.Black },
+            ]}
+            onPress={() => setActiveTab(content.label)}
+          >
+            <ThemedText color={activeTab === content.label ? "White" : "Black"}>
+              {content.label}
+            </ThemedText>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {/* Les 3 sous components s'affichent là */}
+      {renderContent()}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-
-    tabsContainer:{
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 100,
-        ...Shadows.baseShadow
-    },
-
-    tabs:{
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 100,
-        width:'auto',
-        height: 'auto',
-        paddingHorizontal: 25,
-        paddingVertical: 5
-    },
-
-    defaultBackground:{
-        backgroundColor: colors.Background,
-    },
-
-    variantBackground:{
-        backgroundColor: colors.Black
-    }
+  container: {
+    flex: 1,
+  },
+  tabsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    borderRadius: 100,
+  },
+  tabButton: {
+    width: 112,
+    height: 28,
+    borderRadius: 100,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
-
-const EcoScoreRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Eco</ThemedText>
-    </View>
-)
-
-const AnalyseRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Analyse</ThemedText>
-    </View>
-)
-
-const GraphiqueRoute = () => (
-    <View style={[styles.tabs, styles.variantBackground]}>
-        <ThemedText>Graphique</ThemedText>
-    </View>
-)
-
-export default function ProductTab() {
-
-    const layout = useWindowDimensions();
-
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'ecoscore', title: 'Eco-Score' },
-        { key: 'analyse', title: 'Analyse' },
-        { key: 'graphique', title: 'Graphique' },
-    ]);
-
-    const renderScene = SceneMap({
-        ecoscore: EcoScoreRoute,
-        analyse: AnalyseRoute,
-        graphique: GraphiqueRoute,
-    });
-
-    return (
-        <TabView
-        navigationState={{ index, routes }}
-        renderScene={renderScene}
-        onIndexChange={setIndex}
-        initialLayout={{ width: layout.width }}
-        />
-    );
-}

@@ -1,6 +1,7 @@
-import { CustomCheckbox } from "@/components/CustomCheckbox";
-import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+import { Tabs } from "@/components/Tabs";
+import { ProductScore } from "@/components/ProductScore";
 
 export default function Index() {
   return (
@@ -9,13 +10,12 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        gap: 20,
+        marginTop: 20,
       }}
     >
-      <CustomCheckbox/>
       <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
-      <Steps currentStep={1} totalSteps={3}/>
-      <ClassicButton label="C'est parti !" />
-      <ClassicButton variant label="Reprendre la photo" />
+      <Tabs />
     </View>
   );
 }
