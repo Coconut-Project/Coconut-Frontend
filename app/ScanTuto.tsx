@@ -1,8 +1,8 @@
 import { View } from "react-native";
-import Register from "./Register";
 import Terms from "./Terms";
+import { ThemedText } from "@/components/ThemedText";
 
-export default function Index() {
+export default function ScanTuto() {
   return (
     <View
       style={{
@@ -13,7 +13,7 @@ export default function Index() {
         marginTop: 20,
       }}
     >
-    <Terms/>
+        <ThemedText variant='display1' color='Black' children/>
     </View>
   );
 }

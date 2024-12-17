@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ClassicButton = ({ label, variant = false }: { label: string, variant?: boolean }) => {
+export const ClassicButton = ({ label, variant = false, onPress  }: { label: string, variant?: boolean, onPress: () => void; }) => {
   return (
-    <TouchableOpacity style={styles.buttonContainer}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
       <View style={styles.shadow}>
         {variant ? (
           <LinearGradient

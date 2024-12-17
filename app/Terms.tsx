@@ -1,17 +1,72 @@
 import { ThemedText } from '@/components/ThemedText';
 import React from 'react';
-import {StyleSheet, Text, ScrollView, StatusBar, View} from 'react-native';
+import {StyleSheet, Text, ScrollView, StatusBar, View, TouchableOpacity} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { Colors } from "@/constants/Colors";
 import { ClassicButton } from '@/components/ClassicButton';
 import { CustomCheckbox } from '@/components/CustomCheckbox';
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from "@/app//types/NavigationType";
 
 const COLORS = Colors.light;
 
-export default function Terms(){
+const styles = StyleSheet.create({
+    
+    container: {
+      flex: 1,
+      margin:25,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 2,
+      elevation: 2,
+    },
+    scrollView: {
+      backgroundColor: COLORS.White,
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+    },
+  
+    viewContent: {
+      marginBottom:15,
+      gap:10
+    },
+  
+    flexView:{
+      flexDirection: "row",
+      alignItems: "center",
+      marginVertical:10,
+      alignSelf: 'flex-start',
+      flexShrink: 1,
+      gap:5,
+    },
+  
+    underContainer: {
+      gap:5,
+    },
+
+    backButton: {
+
+    }
+  });
+
+export default function Terms({}){
+
+    type NavigationProps = NativeStackNavigationProp<RootStackParamList, "Terms">;
+    const navigation = useNavigation<NavigationProps>();
     return(
     <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
+        <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}
+      >
+        <ThemedText variant="body" color="Black">
+          ← Retour
+        </ThemedText>
+      </TouchableOpacity>
         <ScrollView style={styles.scrollView}>
             <View style={styles.viewContent}>
                 <ThemedText variant='heading1' color='Black'>
@@ -214,44 +269,11 @@ export default function Terms(){
             <CustomCheckbox/>
             <ThemedText variant='body' color="Black">J'accepte les conditions d'utilisation</ThemedText>
         </View>
-        <ClassicButton label={'Continuer'}></ClassicButton>
+        <ClassicButton 
+        label={'Continuer'} 
+        onPress={() => navigation.navigate("Register")}/>
         </SafeAreaView>
     </SafeAreaProvider>
     );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin:25,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  scrollView: {
-    backgroundColor: COLORS.White,
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-  },
-
-  viewContent: {
-    marginBottom:15,
-    gap:10
-  },
-
-  flexView:{
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical:10,
-    alignSelf: 'flex-start',
-    flexShrink: 1,
-    gap:5,
-  },
-
-  underContainer: {
-    gap:5,
-  }
-});
