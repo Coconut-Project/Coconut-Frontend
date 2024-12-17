@@ -4,6 +4,7 @@ import {StyleSheet, Text, ScrollView, StatusBar, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { Colors } from "@/constants/Colors";
 import { ClassicButton } from '@/components/ClassicButton';
+import { CustomCheckbox } from '@/components/CustomCheckbox';
 
 const COLORS = Colors.light;
 
@@ -209,6 +210,10 @@ export default function Terms(){
                 </ThemedText>
             </View>
         </ScrollView>
+        <View style={styles.flexView}>
+            <CustomCheckbox/>
+            <ThemedText variant='body' color="Black">J'accepte les conditions d'utilisation</ThemedText>
+        </View>
         <ClassicButton label={'Continuer'}></ClassicButton>
         </SafeAreaView>
     </SafeAreaProvider>
@@ -235,6 +240,15 @@ const styles = StyleSheet.create({
   viewContent: {
     marginBottom:15,
     gap:10
+  },
+
+  flexView:{
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical:10,
+    alignSelf: 'flex-start',
+    flexShrink: 1,
+    gap:5,
   },
 
   underContainer: {

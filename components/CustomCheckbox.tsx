@@ -10,7 +10,6 @@ export const CustomCheckbox = () => {
   const [isChecked, setChecked] = useState(false);
 
   return (
-    <View style={styles.container}>
       <View style={styles.section}>
         <Checkbox
           style={[styles.checkbox, Shadows.baseShadow]}
@@ -18,24 +17,16 @@ export const CustomCheckbox = () => {
           onValueChange={setChecked}
           color={COLORS.lightGreen}
         />
-        <ThemedText>Custom Checkbox</ThemedText>
       </View>
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16,
-    marginVertical: 32,
-  },
   section: {
     flexDirection: "row",
     alignItems: "center",
   },
   checkbox: {
-    margin: 8,
     borderRadius: 5,
     width: 25,
     height: 25,
