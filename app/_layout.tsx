@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import NavbarBg from "../assets/images/navbar_background.svg";
+import Svg, { SvgProps, Path } from "react-native-svg"
 
 type RootStackParamList = {
   Scan: { username: string }; // Requires a username parameter
@@ -43,24 +43,42 @@ function ProfileScreen(_: ProfileScreenProps) {
   );
 }
 
-function ShapeSVG () {
-  return (
-    <View style={{
-      position: "absolute",
-      width: "100%",
-      height: "32%",
-      bottom: 0,
-      zIndex: -1, 
-}}>
-      <NavbarBg width={50} height={50} />
-    </View>
-  );
-};
+// const NavbarSVG = (props: SvgProps) => (
+//   <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 77" {...props}>
+//     <Path
+//       d="M79.9 14.9C71.2 5.4 58.9 0 46 0h-7.6C17.2 0 0 17.2 0 38.5S17.2 77 38.4 77h173.3c21.2 0 38.4-17.2 38.4-38.5S232.8 0 211.6 0h-7.5c-13 0-25.3 5.5-34 15.2l-17.6 19.6C138 50.9 112.8 51 98.2 35L79.9 15Z"
+//       style={{
+//         fill: "#232a36",
+//         fillRule: "evenodd",
+//       }}
+//     />
+//   </Svg>
+// )
 
 function CustomTabBar({ state, descriptors, navigation }: any) {
   return (
     <View style={styles.navbarContainer}>
-      <ShapeSVG />
+      {/* <NavbarSvg /> */}
+      {/* <Svg
+        fill="none"
+        style={styles.navbarBackground}
+      >
+        <Path
+          fill="#232A36"
+          fillRule="evenodd"
+          d="M69.193 12.796A39.56 39.56 0 0 0 40.06 0H33.5C15.275 0 .5 14.775.5 33s14.775 33 33 33h149c18.225 0 33-14.775 33-33s-14.775-33-33-33h-6.423a39.423 39.423 0 0 0-29.254 12.996l-15.146 16.766c-12.477 13.81-34.127 13.9-46.718.195l-15.766-17.16Z"
+          clipRule="evenodd"
+        />
+      </Svg> */}
+      <Svg fill="none"
+        style={styles.navbarBackground}>
+        <Path
+          fill="#232a36"
+          fillRule="evenodd"
+          d="M79.9 14.9C71.2 5.4 58.9 0 46 0h-7.6C17.2 0 0 17.2 0 38.5S17.2 77 38.4 77h173.3c21.2 0 38.4-17.2 38.4-38.5S232.8 0 211.6 0h-7.5c-13 0-25.3 5.5-34 15.2l-17.6 19.6C138 50.9 112.8 51 98.2 35L79.9 15Z"
+          clipRule="evenodd"
+        />
+      </Svg>
       {/* Loop through each tab */}
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
@@ -77,8 +95,6 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
         return (
           <View style={[styles.navbarSection,
             isMiddle ? styles.middleSection : null,
-            index == 0 ? styles.leftSection : null,
-            index == 2 ? styles.rightSection : null,
           ]}>
             {/* {isMiddle && <View style={styles.beforeMiddle}></View>}
             {isMiddle && <View style={styles.afterMiddle}></View>} */}
@@ -139,31 +155,26 @@ const styles = StyleSheet.create({
     flex: 1,
     // elevation: 5,
   },
+  navbarBackground: {
+    width: 250,
+    height: 77,
+    position: 'absolute',
+    // elevation: 5,
+  },
     navbarSection: {
-      backgroundColor: 'red',
       width: 80,
       height: '100%',
       alignItems: 'center',
       justifyContent: 'center',
     },
-    leftSection: {
-      borderTopRightRadius:30,
-      borderTopLeftRadius: 50,
-      borderBottomLeftRadius: 50,
-    },
     middleSection: {
-      backgroundColor: '#121826',
-      width: 95,
-    },
-    rightSection: {
-      borderTopLeftRadius:30,
-      borderTopRightRadius: 50,
-      borderBottomRightRadius: 50,
+      // backgroundColor: '#121826',
+      width: 80,
     },
       navButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#121826',
+        // backgroundColor: '#121826',
         borderRadius: '50%',
         height: 75,
         width: 75,
@@ -177,33 +188,15 @@ const styles = StyleSheet.create({
         color: 'white',
         height: 85,
         width: 85,
-        borderWidth: 10,
         // borderColor: '#F5F6FA', // background-white
-        borderColor: 'rgba(245, 246, 250, 0.0)'
+        // borderColor: 'rgba(245, 246, 250, 0.0)',
       },
       focusedMiddleButton: {
-        height: 115,
-        width: 115,
+        height: 105,
+        width: 105,
+        borderWidth: 10,
         borderColor: 'white',
-        bottom: 15,
-      },
-      beforeMiddle: {
-        position: 'absolute',
-        backgroundColor: '#F5F6FA',
-        width: 95,
-        height: 50,
-        borderBottomLeftRadius: 50,
-        borderBottomRightRadius: 50,
-        bottom:27,left:-3.5,
-      },
-      afterMiddle: {
-        position: 'absolute',
-        backgroundColor: '#F5F6FA',
-        width: 95,  
-        height: 50,
-        borderBottomLeftRadius: 50,
-        borderBottomRightRadius: 50,
-        bottom:27,right:-3.5,
+        bottom: 20,
       },
         icon: {
         },

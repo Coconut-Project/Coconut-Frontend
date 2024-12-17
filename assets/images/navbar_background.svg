@@ -1,3 +1,17 @@
-<svg width="216" height="66" viewBox="0 0 216 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M69.1927 12.7962C61.7008 4.64138 51.134 0 40.0603 0H33.5C15.2746 0 0.5 14.7746 0.5 33C0.5 51.2254 15.2746 66 33.5 66H182.5C200.725 66 215.5 51.2254 215.5 33C215.5 14.7746 200.725 0 182.5 0H176.077C164.926 0 154.298 4.72175 146.823 12.9957L131.677 29.7617C119.2 43.5723 97.5501 43.6629 84.9586 29.9572L69.1927 12.7962Z" fill="#232A36"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 250 77">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #232a36;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.3, SVG Export Plug-In . SVG Version: 1.2.0 Build 164)  -->
+  <g>
+    <g id="Calque_1">
+      <path class="cls-1" d="M79.9,14.9C71.2,5.4,58.9,0,46,0h-7.6C17.2,0,0,17.2,0,38.5s17.2,38.5,38.4,38.5h173.3c21.2,0,38.4-17.2,38.4-38.5S232.8,0,211.6,0h-7.5c-13,0-25.3,5.5-34,15.2l-17.6,19.6c-14.5,16.1-39.7,16.2-54.3.2l-18.3-20Z"/>
+    </g>
+  </g>
 </svg>
