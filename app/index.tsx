@@ -1,7 +1,6 @@
+import { ProductScore } from "@/components/ProductScore";
 import { View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
-import { Tabs } from "@/components/Tabs";
-import { ProductScore } from "@/components/ProductScore";
 
 export default function Index() {
   return (
@@ -15,7 +14,6 @@ export default function Index() {
       }}
     >
       <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
-      <Tabs />
     </View>
   );
 }
