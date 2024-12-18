@@ -6,8 +6,7 @@ import { Colors } from "@/constants/Colors";
 import { ClassicButton } from '@/components/ClassicButton';
 import { CustomCheckbox } from '@/components/CustomCheckbox';
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from "@/app/types/NavigationType";
+
 
 const COLORS = Colors.light;
 
@@ -52,10 +51,10 @@ const styles = StyleSheet.create({
     }
   });
 
-export default function Terms({}){
+export default function Terms({navigation}){
 
-    type NavigationProps = NativeStackNavigationProp<RootStackParamList, "Terms">;
-    const navigation = useNavigation<NavigationProps>();
+    const navigation = useNavigation();
+
     return(
     <SafeAreaProvider>
         <SafeAreaView style={styles.container}>

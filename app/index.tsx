@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import Terms from "./Terms";
 
 export default function Home() {
   return (

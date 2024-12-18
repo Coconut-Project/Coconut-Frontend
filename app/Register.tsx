@@ -3,12 +3,9 @@ import { InputField } from "@/components/InputField";
 import { View } from "react-native";
 import { ClassicButton } from "@/components/ClassicButton";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "./types/NavigationType";
 
-export default function Register({}) {
-        type NavigationProps = NativeStackNavigationProp<RootStackParamList, "Terms">;
-        const navigation = useNavigation<NavigationProps>();
+export default function Register({navigation}) {
+        const navigation = useNavigation();
     return (
         <View
             style={{
