@@ -12,7 +12,6 @@ export default function Home() {
         marginTop: 20,
       }}
     >
-    <Terms/>
     </View>
   );
 }
