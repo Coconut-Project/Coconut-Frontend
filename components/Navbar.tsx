@@ -1,74 +1,114 @@
-// import React from 'react';
-import { Pressable, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import Svg, { SvgProps, Path } from "react-native-svg"
+import { Colors } from "@/constants/Colors";
+import { ProfileIcon } from "../components/svg/navigation/Profile";
+import { ScanIcon } from "../components/svg/navigation/Scan";
+import { HistoryIcon } from "../components/svg/navigation/History";
 
-const styles = StyleSheet.create({
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 50,
-  },
+const Palet = Colors.light;
 
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-    paddingVertical: 0,
-    paddingHorizontal: 15,
-    width: 325,
-    height: 54,
-  },
-
-  defaultBackground:
-  {
-    backgroundColor: "#30F6B7",
-  },
-
-  variantBackground:
-  {
-    backgroundColor: '#F5F6FA',
-  },
-
-  gradientBorder: {
-    padding: 2,
-    borderRadius: 12,
-  },
-
-  shadow: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-});
-
-function doNothing() {
-}
-
-export const Navbar = ({ state = 0}: { state: number}) => {
+export const CustomTabBar = ({ state, descriptors, navigation }: any) => {
   return (
+    <View style={styles.navbarContainer}>
+      <Svg fill="none"
+        style={styles.navbarBackground}>
+        <Path
+          fill={Palet.Black}
+          fillRule="evenodd"
+          d="M79.9 14.9C71.2 5.4 58.9 0 46 0h-7.6C17.2 0 0 17.2 0 38.5S17.2 77 38.4 77h173.3c21.2 0 38.4-17.2 38.4-38.5S232.8 0 211.6 0h-7.5c-13 0-25.3 5.5-34 15.2l-17.6 19.6C138 50.9 112.8 51 98.2 35L79.9 15Z"
+          clipRule="evenodd"
+        />
+      </Svg>
+      
+      {/* Loop through each tab */}
+      {state.routes.map((route: any, index: number) => {
+        const { options } = descriptors[route.key];
+        const isFocused = state.index === index;
 
-    <View style={styles.shadow}>
-      <View style={[styles.button, styles.defaultBackground]}>
-        <Pressable onPress={doNothing}>
-          <Text>center</Text>
-        </Pressable>
-      </View>
-      <View style={[styles.button, styles.defaultBackground]}>
-        <View style={[styles.button, styles.defaultBackground]}>
-          <Pressable onPress={doNothing}>
-            <Text>Left</Text>
-          </Pressable>
-        </View>
-        <View style={[styles.button, styles.defaultBackground]}>
-          <Pressable onPress={doNothing}>
-            <Text>Right</Text>
-          </Pressable>
-        </View>
-      </View>
-      <TouchableOpacity style={styles.buttonContainer}>
-      </TouchableOpacity>
+        // Define the icon for each tab
+        let iconName;
+        if (route.name === 'History') iconName = 'time-outline';
+        else if (route.name === 'Scan') iconName = 'scan-circle-outline';
+        else if (route.name === 'Profile') iconName = 'person-outline';
+
+        const isMiddle = index === 1;
+
+        return (
+          <View key={route.name} style={styles.navbarSection}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(route.name)}
+              style={[styles.navButton, 
+                isMiddle ? styles.middleButton : null,
+                isMiddle && isFocused && styles.focusedMiddleButton
+              ]}>
+              <View style={[
+                  styles.icon,
+                  isFocused && styles.focusedIcon,
+                  // isMiddle && styles.iconScan,
+                ]}>
+                {index === 0 && <HistoryIcon fill={isFocused ? Palet.lightGreen : Palet.White}/>}
+                {index === 1 && <ScanIcon />}
+                {index === 2 && <ProfileIcon stroke={isFocused ? Palet.lightGreen : Palet.White}/>}
+              </View>
+            </TouchableOpacity>
+          </View>
+        );
+      })}
     </View>
   );
-};
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: Palet.Background,
+  },
+  navbarContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 20,
+    left: 25,
+    right: 25,
+    flex: 1,
+  },
+  navbarBackground: {
+    width: 250,
+    height: 77,
+    position: 'absolute',
+  },
+    navbarSection: {
+      width: 80,
+      height: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+      navButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '50%',
+        height: 75,
+        width: 75,
+      },
+      middleButton: {
+        position: 'absolute',
+        backgroundColor: Palet.lightGreen,
+        bottom: 28,
+        flex:1,
+        color: Palet.White,
+        height: 85,
+        width: 85,
+      },
+      focusedMiddleButton: {
+        height: 105,
+        width: 105,
+        borderWidth: 10,
+        borderColor: Palet.White,
+        bottom: 18,
+      },
+        icon: {
+          color: Palet.lightGreen
+        },
+        focusedIcon: {
+        },
+});

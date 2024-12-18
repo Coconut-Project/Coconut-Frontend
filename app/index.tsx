@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ClassicButton } from "@/components/ClassicButton";
-import { Navbar } from "@/components/Navbar";
 
 
 export default function App() {
