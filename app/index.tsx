@@ -1,19 +1,21 @@
 import { View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
-import { Stats } from "@/components/Stats";
+import { GoProductButton } from "@/components/GoProductButton";
+import { ProfileButton } from "@/components/ProfileButton";
 
 export default function Index() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        // justifyContent: "center",
+        // alignItems: "center",
         gap: 20,
         marginTop: 20,
+        marginHorizontal: 20,
       }}
     >
-      <Stats/>
+      <ProfileButton/>
     </View>
   );
 }
