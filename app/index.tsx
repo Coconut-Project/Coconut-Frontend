@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
+import { Stats } from "@/components/Stats";
 
 export default function Index() {
   return (
@@ -12,7 +13,7 @@ export default function Index() {
         marginTop: 20,
       }}
     >
-      <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
+      <Stats/>
     </View>
   );
 }
