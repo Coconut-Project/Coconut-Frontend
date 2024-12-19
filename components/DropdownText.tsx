@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, View, Dimensions } from 'react-native'
 import { ProfilButton } from './ProfilButton'
 import Typography from '@/constants/Typography';
 import { Colors } from '@/constants/Colors';
@@ -11,12 +11,14 @@ import { Profile } from './Profile';
 const COLORS = Colors.light;
 const COLORSGRADIENT = Colors.gradient;
 
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
 export const DropdownText = () => {
     return (
         <SafeAreaProvider>
             <SafeAreaView>
                 <ScrollView contentContainerStyle={styles.container}>
-                    <Profile userName="Guilhem Rebéjac" welcomeText=" Bienvenue sur Coconut !"/>
+                    <Profile userName="Guilhem Rebéjac" welcomeText=" Bienvenue sur Coconut !" />
                     <View style={styles.titleContainer}>
                         <Text style={[Typography.display2, styles.title]}>Comprendre notre éco-score</Text>
                         <Text style={[Typography.body, styles.description]}>
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         backgroundColor: COLORS.Background,
         padding: 20,
+        width: screenWidth,
     },
     titleContainer: {
         marginBottom: -10,
