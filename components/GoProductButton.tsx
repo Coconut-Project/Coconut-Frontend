@@ -3,10 +3,10 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
+import { TShirt } from "./svg/products/T-Shirt";
 
-
-export function GoProductButton({title="title", progress=50, date="date", time="time"}) {
+export function GoProductButton({title="title", progress=100, date="date", time="time"}) {
 
     const navigation= useNavigation();
 
@@ -14,8 +14,10 @@ export function GoProductButton({title="title", progress=50, date="date", time="
         <View style={styles.container1}>
             <View style={styles.container2}>
 
-                <View style={styles.image}>
-                    {/* Balise pour mettre l'image SVG */}
+                <View style={styles.image_container}>
+                    <View style={styles.image}>
+                        <TShirt/>
+                    </View>
                 </View>
 
                 <View style={styles.container3}>
@@ -24,12 +26,12 @@ export function GoProductButton({title="title", progress=50, date="date", time="
                         <ThemedText variant="body">{date} - {time}</ThemedText>
                     </View>
 
-                <View style={styles.progress_bar_container}>
-                    {/* <LinearGradient
-                        colors={["#F69030", "#F63030"]}
-                        style={[styles.progress_bar, { width: `${progress}%` }]}
-                    /> */}
-                </View>
+                    <View style={styles.progress_bar_container}>
+                        <LinearGradient
+                            colors={["#F69030", "#F63030"]}
+                            style={[styles.progress_bar, { width: `${progress}%` }]}
+                        />
+                    </View>
 
                     <View style={styles.bottomLine}>
                         <ThemedText variant="body">{progress < 20 ? "Impact faible" : progress < 50 ? "Impact modéré" : "Impact élevé"}</ThemedText>
@@ -57,16 +59,27 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.light.White,
     },
     container2: {
-        width: 'auto',
-        height: 'auto',
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
-    image: {
+    image_container: {
         width: 40,
         height: 40,
+        backgroundColor: Colors.light.lightGreen,
+        borderRadius: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 10,
+    },
+    image: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        transform: [{ scale: 0.25 }],
     },
     container3: {
-        width: 'auto',
-        height: 'auto',
+        flex: 1,
+        justifyContent: 'center',
     },
     headerLine: {
         width: 'auto',
@@ -75,7 +88,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     progress_bar_container: {
-        width: 255,
+        width: 'auto',
         height: 10,
         backgroundColor: Colors.light.Background,
         borderRadius: 100,
@@ -92,6 +105,7 @@ const styles = StyleSheet.create({
         height: 'auto',
         justifyContent: 'space-between',
         flexDirection: 'row',
+        alignItems: 'center',
     },
     arrowButton: {
         width: 20,
