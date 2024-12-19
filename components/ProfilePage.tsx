@@ -4,6 +4,7 @@ import { ProfilButton } from './ProfilButton'; // Ton composant bouton existant
 import { Colors } from '@/constants/Colors';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Typography from '@/constants/Typography';
+import { ThemedText } from './ThemedText';
 
 const COLORS = Colors.light;
 
@@ -15,17 +16,20 @@ export const ProfilePage = () => {
         <SafeAreaProvider>
             <SafeAreaView >
                 <ScrollView contentContainerStyle={styles.container}>
-                    
+
                     <View style={styles.headerContainer}>
-                        <Text style={[Typography.button,styles.headerBack]}>&#8592;</Text>
-                        <Text style={[Typography.body, styles.title]}>Profil </Text>
+                        <Text style={[Typography.button, styles.headerBack]}>&#8592;</Text>
+                        {/* <Text style={[Typography.body, styles.title]}>Profil </Text> */}
+                        <View style={styles.title}>
+                            <ThemedText>Profil</ThemedText>
+                        </View>
                     </View>
 
                     <View style={styles.avatarContainer}>
                         <View style={styles.avatarCircle} />
                         <Text style={styles.name}>Léo</Text>
                         <Text style={styles.email}>leo.desantispro@gmail.com</Text>
-                    </View> 
+                    </View>
 
                     <View>
                         <Text style={styles.sectionTitle}>Général</Text>
@@ -62,6 +66,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     headerContainer: {
+        flex : 1,
         flexDirection: 'row',
         alignItems: 'center',
         width: screenWidth,
@@ -76,9 +81,9 @@ const styles = StyleSheet.create({
     },
     title: {
         color: COLORS.Black,
+        justifyContent : "center",
         lineHeight: 20,
-        textAlign: 'center',
-        marginHorizontal: 96,
+        
     },
     avatarContainer: {
         alignItems: 'center',

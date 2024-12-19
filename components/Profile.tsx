@@ -5,11 +5,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import { View, Text} from "react-native";
 import { StyleSheet } from 'react-native';
 import Svg, { G, Path } from "react-native-svg";
+import { ThemedText } from "./ThemedText";
 
 const COLORS = Colors.light;
 const COLORSGRADIENT = Colors.gradient;
 
-export const Profile = ({ userName = "Léo De Santis", welcomeText = "Bon retour parmi nous !" }) => {
+export const Profile = ({ userName, welcomeText} : { userName : string, welcomeText : string}) => {
     return (
         <View style={[styles.header, Shadows.baseShadow]}>
                         <LinearGradient
@@ -30,7 +31,7 @@ export const Profile = ({ userName = "Léo De Santis", welcomeText = "Bon retour
                             </View>}
                         </LinearGradient>
                         <View style={styles.headerTextContainer}>
-                            <Text style={[Typography.heading1, styles.userName]}>{userName}</Text>
+                            <ThemedText variant="heading1">{userName}</ThemedText>
                             <Text style={[Typography.body, styles.subText]}>{welcomeText}</Text>
                         </View>
                     </View>
@@ -62,9 +63,6 @@ const styles = StyleSheet.create({
     headerTextContainer: {
         marginLeft: 10,
         justifyContent: 'center',
-    },
-    userName: {
-        color: COLORS.Black,
     },
     subText: {
         color: '#777',
