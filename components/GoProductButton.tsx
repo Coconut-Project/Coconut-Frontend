@@ -38,7 +38,7 @@ export function GoProductButton({
 
           <View style={styles.progress_bar_container}>
             <LinearGradient
-              colors={["#F69030", "#F63030"]}
+              colors={[Colors.gradient.scoreGradient80.color1, Colors.gradient.scoreGradient80.color2]}
               style={[styles.progress_bar, { width: `${progress}%` }]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}

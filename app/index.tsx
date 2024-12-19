@@ -17,7 +17,7 @@ export default function Index() {
       {/* <ThemedText variant="display2">Welcome to Coconut !</ThemedText> */}
       <GoProductButton
         title="T-Shirt Bershka"
-        progress={80}
+        progress={20}
         date="10/12/2024"
         time="14:56"
       />
