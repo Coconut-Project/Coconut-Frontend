@@ -12,6 +12,8 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        gap: 20,
+        marginTop: 20,
       }}
     >
       {/* <ThemedText variant="display2">Welcome to Coconut !</ThemedText>
